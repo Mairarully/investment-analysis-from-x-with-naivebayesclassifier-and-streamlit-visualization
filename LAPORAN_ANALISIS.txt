@@ -1,0 +1,31 @@
+=================================================================
+LAPORAN ANALISIS MINAT INVESTASI GEN Z
+=================================================================
+
+Tanggal     : 2026-02-23 07:33:26
+Total Data  : 1164
+Data Valid  : 312 (26.8%)
+
+=================================================================
+EVALUASI MODEL
+=================================================================
+Akurasi          : 0.7600 (76.00%)
+F1 Macro         : 0.5770
+F1 Weighted      : 0.7349
+
+Classification Report:
+              precision    recall  f1-score   support
+
+    negative       0.41      0.26      0.31        43
+      netral       0.79      0.94      0.86       242
+    positive       0.80      0.43      0.56        65
+
+    accuracy                           0.76       350
+   macro avg       0.67      0.54      0.58       350
+weighted avg       0.74      0.76      0.73       350
+
+Confusion Matrix:
+          positive  negative  netral
+positive        28         3      34
+negative         5        11      27
+netral           2        13     227
