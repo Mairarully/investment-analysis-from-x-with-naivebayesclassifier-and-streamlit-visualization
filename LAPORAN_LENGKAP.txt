@@ -1,0 +1,331 @@
+======================================================================
+LAPORAN ANALISIS MINAT INVESTASI GEN Z
+SENTIMENT ANALYSIS BERBASIS NAIVE BAYES + TF-IDF
+======================================================================
+
+Tanggal Analisis : 2026-02-21 01:50:49
+Total Data       : 1164 tweet
+Data Valid       : 312 tweet (26.8% membahas investasi)
+Data Tidak Valid : 852 tweet (73.2%)
+
+======================================================================
+A. EVALUASI MODEL NAIVE BAYES
+======================================================================
+Akurasi          : 0.7600 (76.00%)
+F1 Macro         : 0.5770  ← patokan utama (imbalanced data)
+F1 Weighted      : 0.7349
+Precision (Avg)  : 0.7436
+Recall (Avg)     : 0.7600
+
+----------------------------------------------------------------------
+METRICS PER KELAS
+----------------------------------------------------------------------
+Kelas         Precision     Recall   F1-Score    Support
+----------------------------------------------------------------------
+positive         0.8000     0.4308     0.5600         65
+negative         0.4074     0.2558     0.3143         43
+netral           0.7882     0.9380     0.8566        242
+----------------------------------------------------------------------
+
+CONFUSION MATRIX (Actual vs Predicted):
+           positive    negative      netral
+-------------------------------------------------------
+positive         28           3          34   (43.1% benar)
+negative          5          11          27   (25.6% benar)
+netral            2          13         227   (93.8% benar)
+
+======================================================================
+B. DISTRIBUSI SENTIMEN
+======================================================================
+  netral     :  214 tweet ( 68.6%)  ██████████████████████████████████
+  positive   :   66 tweet ( 21.2%)  ██████████
+  negative   :   32 tweet ( 10.3%)  █████
+
+======================================================================
+C. DISTRIBUSI JENIS INVESTASI
+======================================================================
+  saham           :   58 tweet ( 18.6%)  █████████
+  reksadana       :   37 tweet ( 11.9%)  █████
+  emas            :   37 tweet ( 11.9%)  █████
+  crypto          :   29 tweet (  9.3%)  ████
+  deposito        :   28 tweet (  9.0%)  ████
+  saham|crypto|emas :   19 tweet (  6.1%)  ███
+  saham|reksadana :   17 tweet (  5.4%)  ██
+  reksadana|deposito :   10 tweet (  3.2%)  █
+  crypto|reksadana :    8 tweet (  2.6%)  █
+  properti        :    6 tweet (  1.9%)  
+  emas|deposito   :    5 tweet (  1.6%)  
+  reksadana|emas  :    5 tweet (  1.6%)  
+  p2p             :    5 tweet (  1.6%)  
+  crypto|deposito :    5 tweet (  1.6%)  
+  saham|emas      :    5 tweet (  1.6%)  
+  saham|deposito  :    5 tweet (  1.6%)  
+  saham|emas|deposito :    4 tweet (  1.3%)  
+  crypto|emas     :    4 tweet (  1.3%)  
+  saham|crypto|emas|deposito :    4 tweet (  1.3%)  
+  reksadana|emas|deposito :    3 tweet (  1.0%)  
+  saham|reksadana|deposito :    3 tweet (  1.0%)  
+  saham|crypto    :    3 tweet (  1.0%)  
+  saham|reksadana|emas :    2 tweet (  0.6%)  
+  crypto|emas|deposito :    1 tweet (  0.3%)  
+  reksadana|properti :    1 tweet (  0.3%)  
+  saham|properti  :    1 tweet (  0.3%)  
+  deposito|properti :    1 tweet (  0.3%)  
+  saham|reksadana|deposito|properti :    1 tweet (  0.3%)  
+  emas|properti   :    1 tweet (  0.3%)  
+  saham|deposito|properti :    1 tweet (  0.3%)  
+  saham|crypto|reksadana|deposito :    1 tweet (  0.3%)  
+  crypto|properti :    1 tweet (  0.3%)  
+  saham|emas|properti :    1 tweet (  0.3%)  
+
+======================================================================
+D. DISTRIBUSI ALASAN/MOTIVASI INVESTASI
+======================================================================
+  profit_cepat         :   70 tweet ( 22.4%)  ███████████
+  long_term            :   50 tweet ( 16.0%)  ████████
+  belajar              :   39 tweet ( 12.5%)  ██████
+  passive_income       :   29 tweet (  9.3%)  ████
+  diversifikasi        :   16 tweet (  5.1%)  ██
+  trend_fomo           :   15 tweet (  4.8%)  ██
+  rekomendasi          :   11 tweet (  3.5%)  █
+  long_term|belajar    :    9 tweet (  2.9%)  █
+  profit_cepat|long_term :    8 tweet (  2.6%)  █
+  passive_income|belajar :    6 tweet (  1.9%)  
+  long_term|passive_income :    6 tweet (  1.9%)  
+  profit_cepat|belajar :    6 tweet (  1.9%)  
+  profit_cepat|trend_fomo :    6 tweet (  1.9%)  
+  long_term|trend_fomo :    5 tweet (  1.6%)  
+  profit_cepat|passive_income :    4 tweet (  1.3%)  
+  passive_income|rekomendasi :    3 tweet (  1.0%)  
+  passive_income|diversifikasi :    3 tweet (  1.0%)  
+  profit_cepat|trend_fomo|belajar :    3 tweet (  1.0%)  
+  passive_income|belajar|diversifikasi :    2 tweet (  0.6%)  
+  long_term|diversifikasi :    2 tweet (  0.6%)  
+  long_term|passive_income|rekomendasi :    2 tweet (  0.6%)  
+  profit_cepat|diversifikasi :    2 tweet (  0.6%)  
+  profit_cepat|long_term|passive_income :    2 tweet (  0.6%)  
+  profit_cepat|trend_fomo|diversifikasi :    1 tweet (  0.3%)  
+  profit_cepat|trend_fomo|diversifikasi|rekomendasi :    1 tweet (  0.3%)  
+  long_term|trend_fomo|rekomendasi :    1 tweet (  0.3%)  
+  profit_cepat|belajar|diversifikasi :    1 tweet (  0.3%)  
+  profit_cepat|long_term|belajar :    1 tweet (  0.3%)  
+  belajar|rekomendasi  :    1 tweet (  0.3%)  
+  profit_cepat|long_term|trend_fomo :    1 tweet (  0.3%)  
+  profit_cepat|belajar|rekomendasi :    1 tweet (  0.3%)  
+  long_term|belajar|diversifikasi :    1 tweet (  0.3%)  
+  long_term|passive_income|diversifikasi :    1 tweet (  0.3%)  
+  passive_income|trend_fomo :    1 tweet (  0.3%)  
+  long_term|passive_income|trend_fomo :    1 tweet (  0.3%)  
+  profit_cepat|trend_fomo|belajar|rekomendasi :    1 tweet (  0.3%)  
+
+======================================================================
+E. DISTRIBUSI LITERASI KEUANGAN
+======================================================================
+  high       :   44 tweet (  3.8%)  █
+  medium     :  143 tweet ( 12.3%)  ██████
+  low        :  977 tweet ( 83.9%)  █████████████████████████████████████████
+
+======================================================================
+F. CROSS-ANALYSIS: INVESTASI × SENTIMEN (%)
+======================================================================
+
+Investasi          negative      netral    positive
+---------------------------------------------------
+crypto                13.8%       72.4%       13.8%
+crypto|deposito       20.0%       80.0%        0.0%
+crypto|emas           25.0%       50.0%       25.0%
+crypto|emas|deposito        0.0%        0.0%      100.0%
+crypto|properti        0.0%        0.0%      100.0%
+crypto|reksadana        0.0%       87.5%       12.5%
+deposito               3.6%       71.4%       25.0%
+deposito|properti      100.0%        0.0%        0.0%
+emas                  21.6%       37.8%       40.5%
+emas|deposito          0.0%       60.0%       40.0%
+emas|properti          0.0%      100.0%        0.0%
+p2p                    0.0%       80.0%       20.0%
+properti               0.0%       83.3%       16.7%
+reksadana              5.4%       59.5%       35.1%
+reksadana|deposito       30.0%       70.0%        0.0%
+reksadana|emas        20.0%       60.0%       20.0%
+reksadana|emas|deposito        0.0%        0.0%      100.0%
+reksadana|properti        0.0%        0.0%      100.0%
+saham                  8.6%       84.5%        6.9%
+saham|crypto           0.0%      100.0%        0.0%
+saham|crypto|emas        0.0%      100.0%        0.0%
+saham|crypto|emas|deposito       25.0%        0.0%       75.0%
+saham|crypto|reksadana|deposito        0.0%        0.0%      100.0%
+saham|deposito         0.0%      100.0%        0.0%
+saham|deposito|properti        0.0%      100.0%        0.0%
+saham|emas             0.0%      100.0%        0.0%
+saham|emas|deposito        0.0%       75.0%       25.0%
+saham|emas|properti        0.0%      100.0%        0.0%
+saham|properti         0.0%      100.0%        0.0%
+saham|reksadana       23.5%       58.8%       17.6%
+saham|reksadana|deposito        0.0%       33.3%       66.7%
+saham|reksadana|deposito|properti        0.0%      100.0%        0.0%
+saham|reksadana|emas        0.0%      100.0%        0.0%
+
+======================================================================
+G. INSIGHT UTAMA
+======================================================================
+
+1. Jenis Investasi Terpopuler : SAHAM (58 mentions)
+2. Alasan Utama               : PROFIT_CEPAT (70 mentions)
+3. Sentiment Dominan          : NETRAL (214 mentions, 68.6%)
+4. Kombinasi Terkuat          : SAHAM|CRYPTO|EMAS × PROFIT_CEPAT (18 mentions)
+
+======================================================================
+H. INTERPRETASI PER TINGKAT LITERASI
+======================================================================
+
+──────────────────────────────────────────────────────────────────────
+[HIGH] — 30 tweet
+──────────────────────────────────────────────────────────────────────
+Narasi: Gen Z dengan tingkat literasi keuangan HIGH (30 tweet) cenderung memilih investasi SAHAM sebanyak 4 tweet (13.3%) dengan motivasi utama LONG_TERM (50.0%), sedangkan yang lainnya memilih SAHAM|CRYPTO|EMAS|DEPOSITO 4 tweet (13.3%, motivasi: PROFIT_CEPAT|LONG_TERM|PASSIVE_INCOME 50.0%) dan SAHAM|REKSADANA 3 tweet (10.0%, motivasi: BELAJAR 33.3%).
+
+Jenis Investasi:
+  saham           :   4 tweet ( 13.3%)  ███
+  saham|crypto|emas|deposito :   4 tweet ( 13.3%)  ███
+  saham|reksadana :   3 tweet ( 10.0%)  ██
+  reksadana       :   3 tweet ( 10.0%)  ██
+  deposito        :   3 tweet ( 10.0%)  ██
+  emas|deposito   :   2 tweet (  6.7%)  █
+  saham|reksadana|deposito :   2 tweet (  6.7%)  █
+  crypto          :   2 tweet (  6.7%)  █
+  crypto|reksadana :   2 tweet (  6.7%)  █
+  emas            :   1 tweet (  3.3%)  
+  crypto|emas     :   1 tweet (  3.3%)  
+  reksadana|deposito :   1 tweet (  3.3%)  
+  saham|crypto|reksadana|deposito :   1 tweet (  3.3%)  
+  saham|deposito  :   1 tweet (  3.3%)  
+
+Detail Alasan per Investasi (Top 3):
+
+  SAHAM (4 tweet):
+    → long_term              :   2 tweet (50.0%)
+    → long_term|trend_fomo   :   1 tweet (25.0%)
+    → profit_cepat|belajar   :   1 tweet (25.0%)
+
+  SAHAM|CRYPTO|EMAS|DEPOSITO (4 tweet):
+    → profit_cepat|long_term|passive_income :   2 tweet (50.0%)
+    → passive_income         :   1 tweet (25.0%)
+    → profit_cepat|trend_fomo :   1 tweet (25.0%)
+
+  SAHAM|REKSADANA (3 tweet):
+    → belajar                :   1 tweet (33.3%)
+    → profit_cepat|trend_fomo|belajar :   1 tweet (33.3%)
+    → passive_income|diversifikasi :   1 tweet (33.3%)
+
+Sentimen:
+  netral     :  15 tweet (50.0%)
+  positive   :  10 tweet (33.3%)
+  negative   :   5 tweet (16.7%)
+
+──────────────────────────────────────────────────────────────────────
+[MEDIUM] — 79 tweet
+──────────────────────────────────────────────────────────────────────
+Narasi: Gen Z dengan tingkat literasi keuangan MEDIUM (79 tweet) cenderung memilih investasi EMAS sebanyak 16 tweet (20.3%) dengan motivasi utama LONG_TERM (62.5%), sedangkan yang lainnya memilih DEPOSITO 16 tweet (20.3%, motivasi: LONG_TERM 31.2%) dan REKSADANA|DEPOSITO 8 tweet (10.1%, motivasi: PASSIVE_INCOME 37.5%).
+
+Jenis Investasi:
+  emas            :  16 tweet ( 20.3%)  █████
+  deposito        :  16 tweet ( 20.3%)  █████
+  reksadana|deposito :   8 tweet ( 10.1%)  ██
+  reksadana       :   7 tweet (  8.9%)  ██
+  saham|reksadana :   3 tweet (  3.8%)  
+  saham|emas|deposito :   3 tweet (  3.8%)  
+  reksadana|emas|deposito :   3 tweet (  3.8%)  
+  crypto          :   3 tweet (  3.8%)  
+  saham           :   2 tweet (  2.5%)  
+  crypto|reksadana :   2 tweet (  2.5%)  
+  crypto|deposito :   2 tweet (  2.5%)  
+  saham|deposito  :   2 tweet (  2.5%)  
+  emas|deposito   :   2 tweet (  2.5%)  
+  crypto|emas|deposito :   1 tweet (  1.3%)  
+  reksadana|emas  :   1 tweet (  1.3%)  
+  saham|reksadana|deposito :   1 tweet (  1.3%)  
+  crypto|properti :   1 tweet (  1.3%)  
+  deposito|properti :   1 tweet (  1.3%)  
+  saham|deposito|properti :   1 tweet (  1.3%)  
+  saham|reksadana|deposito|properti :   1 tweet (  1.3%)  
+  emas|properti   :   1 tweet (  1.3%)  
+  saham|reksadana|emas :   1 tweet (  1.3%)  
+  reksadana|properti :   1 tweet (  1.3%)  
+
+Detail Alasan per Investasi (Top 3):
+
+  EMAS (16 tweet):
+    → long_term              :  10 tweet (62.5%)
+    → long_term|belajar      :   2 tweet (12.5%)
+    → belajar                :   2 tweet (12.5%)
+    → long_term|trend_fomo|rekomendasi :   1 tweet (6.2%)
+
+  DEPOSITO (16 tweet):
+    → long_term              :   5 tweet (31.2%)
+    → belajar                :   3 tweet (18.8%)
+    → passive_income         :   2 tweet (12.5%)
+    → passive_income|belajar :   1 tweet (6.2%)
+
+  REKSADANA|DEPOSITO (8 tweet):
+    → passive_income         :   3 tweet (37.5%)
+    → trend_fomo             :   1 tweet (12.5%)
+    → long_term|diversifikasi :   1 tweet (12.5%)
+    → belajar                :   1 tweet (12.5%)
+
+Sentimen:
+  netral     :  40 tweet (50.6%)
+  positive   :  30 tweet (38.0%)
+  negative   :   9 tweet (11.4%)
+
+──────────────────────────────────────────────────────────────────────
+[LOW] — 203 tweet
+──────────────────────────────────────────────────────────────────────
+Narasi: Gen Z dengan tingkat literasi keuangan LOW (203 tweet) cenderung memilih investasi SAHAM sebanyak 52 tweet (25.6%) dengan motivasi utama PROFIT_CEPAT (28.8%), sedangkan yang lainnya memilih REKSADANA 27 tweet (13.3%, motivasi: PROFIT_CEPAT 44.4%) dan CRYPTO 24 tweet (11.8%, motivasi: PROFIT_CEPAT 20.8%).
+
+Jenis Investasi:
+  saham           :  52 tweet ( 25.6%)  ██████
+  reksadana       :  27 tweet ( 13.3%)  ███
+  crypto          :  24 tweet ( 11.8%)  ██
+  emas            :  20 tweet (  9.9%)  ██
+  saham|crypto|emas :  19 tweet (  9.4%)  ██
+  saham|reksadana :  11 tweet (  5.4%)  █
+  deposito        :   9 tweet (  4.4%)  █
+  properti        :   6 tweet (  3.0%)  
+  saham|emas      :   5 tweet (  2.5%)  
+  p2p             :   5 tweet (  2.5%)  
+  reksadana|emas  :   4 tweet (  2.0%)  
+  crypto|reksadana :   4 tweet (  2.0%)  
+  saham|crypto    :   3 tweet (  1.5%)  
+  crypto|deposito :   3 tweet (  1.5%)  
+  crypto|emas     :   3 tweet (  1.5%)  
+  saham|deposito  :   2 tweet (  1.0%)  
+  saham|emas|deposito :   1 tweet (  0.5%)  
+  reksadana|deposito :   1 tweet (  0.5%)  
+  saham|properti  :   1 tweet (  0.5%)  
+  saham|reksadana|emas :   1 tweet (  0.5%)  
+  emas|deposito   :   1 tweet (  0.5%)  
+  saham|emas|properti :   1 tweet (  0.5%)  
+
+Detail Alasan per Investasi (Top 3):
+
+  SAHAM (52 tweet):
+    → profit_cepat           :  15 tweet (28.8%)
+    → long_term              :   8 tweet (15.4%)
+    → trend_fomo             :   7 tweet (13.5%)
+    → passive_income         :   5 tweet (9.6%)
+
+  REKSADANA (27 tweet):
+    → profit_cepat           :  12 tweet (44.4%)
+    → long_term              :   3 tweet (11.1%)
+    → passive_income|rekomendasi :   2 tweet (7.4%)
+    → passive_income         :   2 tweet (7.4%)
+
+  CRYPTO (24 tweet):
+    → profit_cepat           :   5 tweet (20.8%)
+    → belajar                :   5 tweet (20.8%)
+    → long_term              :   3 tweet (12.5%)
+    → trend_fomo             :   3 tweet (12.5%)
+
+Sentimen:
+  netral     : 159 tweet (78.3%)
+  positive   :  26 tweet (12.8%)
+  negative   :  18 tweet (8.9%)
